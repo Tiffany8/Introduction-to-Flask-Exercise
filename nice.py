@@ -25,6 +25,7 @@ def say_hello():
             <h1>Hi There!</h1>
             <form action="/greet">
                 <label>What's your name? <input type="text" name="person"></label>
+                <label>What's your age? <input type="text" name="age"></label>
                 <input type="submit">
             </form>
         </body>
@@ -35,6 +36,7 @@ def say_hello():
 @app.route('/greet')
 def greet_person():
     player = request.args.get("person")
+    playerage = request.args.get("age")
 
     AWESOMENESS = [
         'awesome', 'terrific', 'fantastic', 'neato', 'fantabulous', 'wowza', 'oh-so-not-meh',
@@ -49,9 +51,9 @@ def greet_person():
             <title>A Compliment</title>
         </head>
         <body>
-            Hi %s I think you're %s!
+            Hi %s I think you're %s and you're %s years old!
         </body>
-    </html>""" % (player, compliment)
+    </html>""" % (player, compliment, playerage)
 
 
 if __name__ == '__main__':
